@@ -10,7 +10,8 @@
                        que desaceleran y frena en Tropika por 10 s, en loop.
      3. Menú         — bloqueo de scroll, cierre con Escape, click fuera.
      4. Videos       — reels mudos en loop, carga diferida y sonido de a uno.
-     5. Detalles     — header con sombra al scrollear, aparición de secciones.
+     5. Carpetas     — los servicios se abren solos la primera vez que se ven.
+     6. Detalles     — header con sombra al scrollear, aparición de secciones.
 
    Respeta prefers-reduced-motion y se pausa con la pestaña oculta. */
 (function () {
@@ -565,7 +566,50 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 5. DETALLES: header al scrollear + aparición de secciones            *
+   * 5. CARPETAS DE SERVICIOS                                             *
+   *    En desktop la carpeta se abre con hover, pero en celular no hay    *
+   *    hover: si no se toca, nadie ve que se abre. Así que la primera vez  *
+   *    que entran en pantalla se abren solas, en cascada, y vuelven a      *
+   *    cerrarse. Después queda el hover normal.                           *
+   * ------------------------------------------------------------------ */
+  function folders() {
+    if (REDUCE) return;
+
+    var OPEN_MS = 1500;   // cuánto queda abierta
+    var STEP_MS = 130;    // desfasaje entre una y la siguiente
+    var timer = 0;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        io.unobserve(el);
+        var i = parseInt(el.style.getPropertyValue('--i'), 10) || 0;
+        setTimeout(function () {
+          el.classList.add('pp-open');
+          setTimeout(function () { el.classList.remove('pp-open'); }, OPEN_MS);
+        }, i * STEP_MS);
+      });
+    }, { threshold: 0.35 });
+
+    // el runtime de DC renderiza después del DOMContentLoaded: hay que
+    // registrar lo que va apareciendo, igual que con los videos
+    function scan() {
+      document.querySelectorAll('.pp-folder').forEach(function (el) {
+        if (el.dataset.ppF) return;
+        el.dataset.ppF = '1';
+        io.observe(el);
+      });
+    }
+    scan();
+    new MutationObserver(function () {
+      clearTimeout(timer);
+      timer = setTimeout(scan, 120);
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+
+  /* ------------------------------------------------------------------ *
+   * 6. DETALLES: header al scrollear + aparición de secciones            *
    * ------------------------------------------------------------------ */
   function chrome() {
     var root = document.documentElement;
@@ -605,6 +649,7 @@
     typeCycle();
     menu();
     videos();
+    folders();
     chrome();
   });
 })();
