@@ -36,6 +36,20 @@ pili/
 Los tres archivos "no tocar" y `_ds/` los genera y sobrescribe el editor de
 diseño. Todo lo propio vive en `assets/`.
 
+## Contacto — falta el número real
+
+Los tres botones de WhatsApp (hero, menú y sección de contacto) apuntan
+todavía al número de ejemplo `5491155555555`. Para poner el de Pilar,
+reemplazar esa cadena en `index.html`: aparece tres veces y va en formato
+internacional sin `+` ni espacios (Argentina: `54` + `9` + característica sin
+el 0 + número sin el 15).
+
+El link ya lleva el mensaje escrito de antemano, así que a Pilar le llega
+"Hola Pili, vi tu portfolio y quiero consultar por tus servicios de …" con el
+cursor listo para completar.
+
+Mail: `pilipersico1@gmail.com`.
+
 ## Videos de la sección Trabajos
 
 Cada card espera dos archivos en `assets/video/`:
