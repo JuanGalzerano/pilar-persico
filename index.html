@@ -138,7 +138,9 @@ html[data-pp-scroll="1"] .pp-head { background: rgba(251,249,247,.9); border-bot
   max-width: 68ch; margin: clamp(20px, 2.4vw, 32px) 0 0; }
 .pp-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: clamp(28px, 3.4vw, 44px); }
 .pp-hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(22px, 2.6vw, 32px); }
-@media (min-width: 900px) {
+/* Los rubros entran en una fila recién arriba de 1120px: con los nombres
+   largos, forzar nowrap antes los dejaba apretados contra los bordes. */
+@media (min-width: 1120px) {
   .pp-hero-tags { flex-wrap: nowrap; }
   .pp-hero-tags > span { white-space: nowrap; }
 }
@@ -284,9 +286,9 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
   <div id="pp-menu" class="pp-menu" data-menu-panel="" data-open="{{ menuState }}" aria-hidden="{{ menuHidden }}">
     <div class="pp-menu-inner">
       <span class="pp-menu-kicker">Contenido para marcas · Buenos Aires</span>
-      <a class="pp-link" style="--i:0" href="#trabajos" onClick="{{ closeMenu }}"><span class="n">01</span>Trabajos<span class="go">→</span></a>
+      <a class="pp-link" style="--i:0" href="#servicios" onClick="{{ closeMenu }}"><span class="n">01</span>Servicios<span class="go">→</span></a>
       <div class="pp-rule" style="--i:0"></div>
-      <a class="pp-link" style="--i:1" href="#servicios" onClick="{{ closeMenu }}"><span class="n">02</span>Servicios<span class="go">→</span></a>
+      <a class="pp-link" style="--i:1" href="#trabajos" onClick="{{ closeMenu }}"><span class="n">02</span>Trabajos<span class="go">→</span></a>
       <div class="pp-rule" style="--i:1"></div>
       <a class="pp-link" style="--i:2" href="#proceso" onClick="{{ closeMenu }}"><span class="n">03</span>Cómo trabajo<span class="go">→</span></a>
       <div class="pp-rule" style="--i:2"></div>
@@ -312,11 +314,11 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
         <a href="#trabajos" style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:16px 26px;font-size:15px;font-weight:600;transform:rotate(1.9deg);box-shadow:0 6px 14px rgba(32,30,29,0.10);transition:transform 0.18s ease" style-hover="background:var(--mag-soft);color:var(--mag)">Ver trabajos →</a>
       </div>
       <div class="pp-hero-tags">
-        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(-2.4deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Edición de video</span>
-        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(1.8deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">CM de redes</span>
-        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(-1.2deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Reels</span>
-        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(2.6deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Grabación</span>
-        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(-1.8deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Publicidad</span>
+        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(-2.4deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Edición y Diseño</span>
+        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(1.8deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Redacción y creatividad</span>
+        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(-1.2deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Planeación del contenido</span>
+        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(2.6deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Pensamiento estratégico</span>
+        <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:10px 16px;font-size:13.5px;color:var(--mute);transform:rotate(-1.8deg);box-shadow:0 4px 10px rgba(32,30,29,0.07)">Organización y manejo de cuentas</span>
       </div>
     </section>
 
@@ -350,6 +352,57 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
         </button>
       </div>
 
+    <section id="servicios" style="padding:clamp(32px,5vw,64px) 0">
+      <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0 0 clamp(24px,3vw,32px)">Servicios</h2>
+      <div class="pp-folders">
+        <article class="pp-folder" style="--i:0">
+          <span class="pp-folder-tab" aria-hidden="true"></span>
+          <span class="pp-folder-sheet" aria-hidden="true"></span>
+          <div class="pp-folder-front">
+            <span class="pp-folder-num">01</span>
+            <h3 class="pp-folder-name">Edición y Diseño</h3>
+            <p class="pp-folder-note">Imagen y video de punta a punta: producción, armado, retoques y sonido.</p>
+          </div>
+        </article>
+        <article class="pp-folder" style="--i:1">
+          <span class="pp-folder-tab" aria-hidden="true"></span>
+          <span class="pp-folder-sheet" aria-hidden="true"></span>
+          <div class="pp-folder-front">
+            <span class="pp-folder-num">02</span>
+            <h3 class="pp-folder-name">Redacción y creatividad</h3>
+            <p class="pp-folder-note">Armado de campañas: concepto, storytelling y adaptación a cada formato.</p>
+          </div>
+        </article>
+        <article class="pp-folder" style="--i:2">
+          <span class="pp-folder-tab" aria-hidden="true"></span>
+          <span class="pp-folder-sheet" aria-hidden="true"></span>
+          <div class="pp-folder-front">
+            <span class="pp-folder-num">03</span>
+            <h3 class="pp-folder-name">Planeación del contenido</h3>
+            <p class="pp-folder-note">Calendario de contenido, ideas y guiones para reels y carruseles, según el objetivo que se busque.</p>
+          </div>
+        </article>
+        <article class="pp-folder" style="--i:3">
+          <span class="pp-folder-tab" aria-hidden="true"></span>
+          <span class="pp-folder-sheet" aria-hidden="true"></span>
+          <div class="pp-folder-front">
+            <span class="pp-folder-num">04</span>
+            <h3 class="pp-folder-name">Pensamiento estratégico</h3>
+            <p class="pp-folder-note">Análisis de marca, investigación de mercado.</p>
+          </div>
+        </article>
+        <article class="pp-folder" style="--i:4">
+          <span class="pp-folder-tab" aria-hidden="true"></span>
+          <span class="pp-folder-sheet" aria-hidden="true"></span>
+          <div class="pp-folder-front">
+            <span class="pp-folder-num">05</span>
+            <h3 class="pp-folder-name">Organización y manejo de cuentas</h3>
+            <p class="pp-folder-note">Publicación, respuesta a mensajes y evaluación de resultados.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section id="trabajos" style="padding:clamp(32px,5vw,64px) 0">
       <div style="display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px">
         <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0">Algunas producciones</h2>
@@ -372,84 +425,6 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
           </div>
           <h3 style="font-family:var(--font-heading);font-weight:800;font-size:19px;letter-spacing:-0.01em;margin:18px 0 0"><a href="#contacto" style="color:var(--mag)">Mercado Libre →</a></h3>
           <p style="font-size:15px;line-height:1.6;color:var(--mute);margin:6px 0 0;max-width:46ch">Spot audiovisual académico. Dirección, producción, creatividad, iluminación y edición.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="servicios" style="padding:clamp(32px,5vw,64px) 0">
-      <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0 0 clamp(24px,3vw,32px)">Servicios</h2>
-      <div class="pp-folders">
-        <article class="pp-folder" style="--i:0">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">01</span>
-            <h3 class="pp-folder-name">Edición de video</h3>
-            <p class="pp-folder-note">Armado, ritmo, subtítulos y sonido. Material crudo que entra desordenado y sale listo para publicar.</p>
-          </div>
-        </article>
-        <article class="pp-folder" style="--i:1">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">02</span>
-            <h3 class="pp-folder-name">CM de redes</h3>
-            <p class="pp-folder-note">Calendario de contenido, redacción de copys, publicación y respuesta a mensajes. La cuenta con alguien atrás todos los días.</p>
-          </div>
-        </article>
-        <article class="pp-folder" style="--i:2">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">03</span>
-            <h3 class="pp-folder-name">Reels</h3>
-            <p class="pp-folder-note">Idea, guion corto y edición vertical. Formatos pensados para que la marca aparezca seguido, no una vez por mes.</p>
-          </div>
-        </article>
-        <article class="pp-folder" style="--i:3">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">04</span>
-            <h3 class="pp-folder-name">Grabación</h3>
-            <p class="pp-folder-note">Producción en el lugar: cámara, luz y dirección. Producto, local, servicio o vos hablando a cámara.</p>
-          </div>
-        </article>
-        <article class="pp-folder" style="--i:4">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">05</span>
-            <h3 class="pp-folder-name">Publicidad</h3>
-            <p class="pp-folder-note">Piezas para campaña: concepto, storytelling y adaptación a cada formato. Publicidad es lo que estudio y es desde dónde miro cada pieza.</p>
-          </div>
-        </article>
-        <article class="pp-folder" style="--i:5">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">06</span>
-            <h3 class="pp-folder-name">Pensamiento estratégico</h3>
-            <p class="pp-folder-note">Benchmarking y análisis de marca.</p>
-          </div>
-        </article>
-        <article class="pp-folder" style="--i:6">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">07</span>
-            <h3 class="pp-folder-name">Redacción y creatividad</h3>
-            <p class="pp-folder-note">Campañas, storytelling y copys.</p>
-          </div>
-        </article>
-        <article class="pp-folder" style="--i:7">
-          <span class="pp-folder-tab" aria-hidden="true"></span>
-          <span class="pp-folder-sheet" aria-hidden="true"></span>
-          <div class="pp-folder-front">
-            <span class="pp-folder-num">08</span>
-            <h3 class="pp-folder-name">Organización y documentación gráfica</h3>
-            <p class="pp-folder-note">Presentaciones, brief y entregables ordenados.</p>
-          </div>
         </article>
       </div>
     </section>
