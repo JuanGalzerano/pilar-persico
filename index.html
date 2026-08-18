@@ -512,24 +512,12 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
       </section>
     </sc-if>
 
-    <section id="sobre" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(32px,5vw,64px) 0">
-      <div style="width:100%;aspect-ratio:4 / 5;border-radius:clamp(28px,4vw,40px);overflow:hidden;background:#f1efec">
-        <image-slot id="v2-retrato" shape="rect" placeholder="Foto de Pili — soltá la imagen acá"></image-slot>
-      </div>
+    <section id="sobre" style="padding:clamp(32px,5vw,64px) 0">
       <div>
         <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0">Un poco más a detalle</h2>
         <p style="font-size:16.5px;line-height:1.7;color:var(--mute);margin:20px 0 0;max-width:50ch">Si te preguntás por qué elegí este camino y no otro, la respuesta es fácil: siempre se me ocurrían ideas antes que el resto terminara de plantear el problema.</p>
         <p style="font-size:16.5px;line-height:1.7;color:var(--mute);margin:16px 0 0;max-width:50ch">De chica me decían que era muy creativa, pero también que pensaba muy rápido y saltaba de una idea a otra, como si eso fuera un defecto. Tardé en darme cuenta de que esa velocidad es exactamente lo que hace falta para tomar decisiones cuando una marca no tiene tiempo que perder.</p>
-        <p style="font-size:16.5px;line-height:1.7;color:var(--mute);margin:16px 0 0;max-width:50ch">Hoy estudio para transformar esa creatividad en estrategia, y me encantaría que seas el próximo al que ayude.</p>
-        <sc-if value="{{ showHabilidades }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px">
-            <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:9px 16px;font-size:13.5px">Edición y diseño (video y foto)</span>
-            <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:9px 16px;font-size:13.5px">Ideas rápidas</span>
-            <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:9px 16px;font-size:13.5px">Organización y atención al cliente</span>
-            <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:9px 16px;font-size:13.5px">Redacción y creatividad</span>
-            <span style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:9px 16px;font-size:13.5px">Pensamiento estratégico</span>
-          </div>
-        </sc-if>
+        <p style="font-size:16.5px;line-height:1.7;color:var(--mute);margin:16px 0 0;max-width:50ch">Hoy busco transformar esa creatividad en estrategia, y me encantaría que seas el próximo al que ayude.</p>
       </div>
     </section>
 
@@ -557,7 +545,7 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showProceso&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;},&quot;showHabilidades&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showProceso&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;}}">
 class Component extends DCLogic {
   state = { menuOpen: false };
   renderVals() {
@@ -568,7 +556,6 @@ class Component extends DCLogic {
       toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false }),
       showProceso: this.props.showProceso ?? true,
-      showHabilidades: this.props.showHabilidades ?? true,
     };
   }
 }
