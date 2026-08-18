@@ -36,19 +36,20 @@ pili/
 Los tres archivos "no tocar" y `_ds/` los genera y sobrescribe el editor de
 diseño. Todo lo propio vive en `assets/`.
 
-## Contacto — falta el número real
+## Contacto
 
-Los tres botones de WhatsApp (hero, menú y sección de contacto) apuntan
-todavía al número de ejemplo `5491155555555`. Para poner el de Pilar,
-reemplazar esa cadena en `index.html`: aparece tres veces y va en formato
-internacional sin `+` ni espacios (Argentina: `54` + `9` + característica sin
-el 0 + número sin el 15).
+| Dato | Valor |
+| --- | --- |
+| WhatsApp | `+54 9 11 2740-6600` → en los links va como `5491127406600` |
+| Mail | `pilipersico1@gmail.com` |
 
-El link ya lleva el mensaje escrito de antemano, así que a Pilar le llega
-"Hola Pili, vi tu portfolio y quiero consultar por tus servicios de …" con el
-cursor listo para completar.
+Los cinco botones de WhatsApp (header, hero, menú, la banda después de Trabajos
+y la sección de contacto) apuntan al mismo link con el mensaje ya escrito:
+"Hola Pili, vi tu portfolio y quiero consultar por tus servicios de …", cortado
+a propósito para que la persona complete el rubro.
 
-Mail: `pilipersico1@gmail.com`.
+El número va en formato internacional, sin `+` ni espacios: `54` + `9` +
+característica sin el 0 + número sin el 15.
 
 ## Videos de la sección Trabajos
 
