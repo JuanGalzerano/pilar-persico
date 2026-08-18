@@ -576,8 +576,8 @@
   function folders() {
     if (REDUCE) return;
 
-    var OPEN_MS = 1500;   // cuánto queda abierta
-    var STEP_MS = 130;    // desfasaje entre una y la siguiente
+    var OPEN_MS = 2600;   // cuánto queda abierta (la hoja tarda ~1s en salir)
+    var STEP_MS = 190;    // desfasaje entre una y la siguiente
     var timer = 0;
 
     var io = new IntersectionObserver(function (entries) {
