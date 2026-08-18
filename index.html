@@ -180,9 +180,40 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
 .pp-vid[data-missing="1"] .pp-vid-missing { display: grid; }
 .pp-vid[data-missing="1"] .pp-video, .pp-vid[data-missing="1"] .pp-sound { display: none; }
 
+/* ============ CARPETAS DE SOFT SKILLS ============
+   Carpeta tipo Finder hecha con tres capas: la pestaña, el lomo de atrás y la
+   tapa. En hover la tapa se abre hacia adelante con un rotateX. */
+.pp-folders { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: clamp(20px, 3vw, 34px); perspective: 900px; }
+.pp-folder { margin: 0; text-align: center; }
+.pp-folder-art { position: relative; width: 100%; max-width: 190px; margin: 0 auto;
+  aspect-ratio: 5 / 4; transform-style: preserve-3d;
+  transition: transform .35s cubic-bezier(.2,.9,.2,1); }
+.pp-folder-art span { position: absolute; display: block; }
+.pp-folder-art .tab { left: 4%; top: 6%; width: 44%; height: 16%;
+  border-radius: 10px 14px 0 0; background: #f3c3dd; }
+.pp-folder-art .back { inset: 18% 2% 4% 2%; border-radius: 4px 14px 14px 14px;
+  background: linear-gradient(#f3c3dd, #eeb2d1); }
+.pp-folder-art .front { inset: 34% 0 0 0; border-radius: 12px;
+  background: linear-gradient(160deg, #fdeaf4, #f7d4e8);
+  border: 1px solid rgba(195,0,122,.16);
+  box-shadow: 0 10px 22px -14px rgba(32,30,29,.5);
+  transform-origin: bottom center;
+  transition: transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s ease; }
+.pp-folder:hover .pp-folder-art { transform: translateY(-6px); }
+.pp-folder:hover .pp-folder-art .front { transform: rotateX(-24deg);
+  box-shadow: 0 20px 30px -18px rgba(32,30,29,.55); }
+.pp-folder-name { font-family: var(--font-heading); font-weight: 800; font-size: 16.5px;
+  letter-spacing: -.01em; line-height: 1.25; margin: 16px 0 0; }
+.pp-folder-note { font-size: 13.5px; line-height: 1.5; color: var(--mute); opacity: .78;
+  margin: 6px auto 0; max-width: 24ch; }
+@media (prefers-reduced-motion: reduce) {
+  .pp-folder:hover .pp-folder-art, .pp-folder:hover .pp-folder-art .front { transform: none; }
+}
+
 /* aparición al scrollear */
-.pp-r { opacity: 0; transform: translateY(26px); }
-.pp-r.pp-in { opacity: 1; transform: none; transition: opacity .7s ease, transform .8s cubic-bezier(.2,.9,.2,1); }
+.pp-r { opacity: 0; transform: translateY(8px); }
+.pp-r.pp-in { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s cubic-bezier(.25,.8,.35,1); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -262,7 +293,6 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
     <section id="trabajos" style="padding:clamp(32px,5vw,64px) 0">
       <div style="display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px">
         <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0">Algunas producciones</h2>
-        <span style="font-size:14px;color:var(--mute)">Spots, dirección y edición</span>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,32px)">
         <article>
@@ -281,11 +311,7 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
             <p class="pp-vid-missing">Falta <b>assets/video/mercado-libre.mp4</b><span>Dejá el archivo ahí (y si querés mercado-libre-poster.jpg) y aparece solo</span></p>
           </div>
           <h3 style="font-family:var(--font-heading);font-weight:800;font-size:19px;letter-spacing:-0.01em;margin:18px 0 0"><a href="#contacto" style="color:var(--mag)">Mercado Libre →</a></h3>
-          <p style="font-size:15px;line-height:1.6;color:var(--mute);margin:6px 0 0;max-width:46ch">Spot audiovisual. Dirección, producción, creatividad, iluminación y edición.</p>
-        </article>
-        <article style="background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;justify-content:space-between;min-height:280px">
-          <p style="font-size:15px;line-height:1.6;color:#cfc9c6;margin:0;max-width:30ch">Tengo material nuevo cada semana. Si querés ver algo puntual —producto, local, alguien hablando a cámara— te lo mando.</p>
-          <a href="#contacto" style="color:#fff;font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-0.01em;margin-top:28px" style-hover="color:#f29fcb">Pedime más trabajos →</a>
+          <p style="font-size:15px;line-height:1.6;color:var(--mute);margin:6px 0 0;max-width:46ch">Spot audiovisual académico. Dirección, producción, creatividad, iluminación y edición.</p>
         </article>
       </div>
     </section>
@@ -318,6 +344,40 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
           <h3 style="font-family:var(--font-heading);font-weight:800;font-size:21px;letter-spacing:-0.01em;margin:20px 0 0">Publicidad</h3>
           <p style="font-size:15px;line-height:1.65;color:#8b0057;margin:8px 0 0">Piezas para campaña: concepto, storytelling y adaptación a cada formato. Publicidad es lo que estudio y es desde dónde miro cada pieza.</p>
         </div>
+      </div>
+    </section>
+
+
+    <section id="skills" style="padding:clamp(32px,5vw,64px) 0">
+      <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0 0 8px">Lo que traigo puesto</h2>
+      <p style="font-size:15px;line-height:1.6;color:var(--mute);margin:0 0 clamp(24px,3vw,36px);max-width:52ch">Lo que no se ve en una pieza terminada, pero decide cómo sale.</p>
+      <div class="pp-folders">
+        <article class="pp-folder" style="--i:0">
+          <div class="pp-folder-art" aria-hidden="true">
+            <span class="tab"></span>
+            <span class="back"></span>
+            <span class="front"></span>
+          </div>
+          <h3 class="pp-folder-name">Pensamiento estratégico</h3>
+          <p class="pp-folder-note">Benchmarking y análisis de marca</p>
+        </article>
+        <article class="pp-folder" style="--i:1">
+          <div class="pp-folder-art" aria-hidden="true">
+            <span class="tab"></span>
+            <span class="back"></span>
+            <span class="front"></span>
+          </div>
+          <h3 class="pp-folder-name">Redacción y creatividad</h3>
+          <p class="pp-folder-note">Campañas, storytelling y copys</p>
+        </article>
+        <article class="pp-folder" style="--i:2">
+          <div class="pp-folder-art" aria-hidden="true">
+            <span class="tab"></span>
+            <span class="back"></span>
+            <span class="front"></span>
+          </div>
+          <h3 class="pp-folder-name">Organización y documentación gráfica</h3>
+        </article>
       </div>
     </section>
 
