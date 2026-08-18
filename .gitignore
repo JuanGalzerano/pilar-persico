@@ -1,0 +1,15 @@
+# basura del sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.thumbnail
+
+# editores
+.vscode/
+.idea/
+*.swp
+
+# dependencias (por si algún día se agrega un build)
+node_modules/
+dist/

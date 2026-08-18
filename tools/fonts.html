@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Probador de fuentes — Pilar Pérsico</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&family=Bakbak+One&family=Archivo+Black&family=Anton&family=Alfa+Slab+One&family=Bowlby+One&family=Lilita+One&family=Titan+One&family=Passion+One:wght@700;900&family=Ultra&family=Shrikhand&family=Caprasimo&family=Bungee&family=Rubik+Mono+One&family=Climate+Crisis&family=Unbounded:wght@400;800&family=Syne:wght@700;800&family=Anybody:wdth,wght@50..150,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Space+Grotesk:wght@700&family=Instrument+Serif:ital@0;1&family=Playfair+Display:wght@900&family=Yeseva+One&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=Gluten:wght@400..900&family=Fredoka:wght@400..700&display=swap">
+<style>
+  /* Herramienta interna, no es parte del sitio. Abrila en /fonts.html */
+  :root {
+    --ink: #201e1d; --mag: #c3007a; --mag-soft: #fdeaf4; --paper: #fbf9f7;
+    --card: #fff; --mute: #6f6a68; --edge: clamp(20px, 5vw, 64px);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    background-image: radial-gradient(rgba(32,30,29,.07) 1px, transparent 1px);
+    background-size: 22px 22px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--edge) 80px; }
+
+  /* ---- escenario: cómo se ve en el hero ---- */
+  .stage { position: sticky; top: 0; z-index: 5; background: rgba(251,249,247,.94);
+    backdrop-filter: blur(12px); border-bottom: 1px solid #ece6e2; padding: 20px var(--edge) 18px; }
+  .stage-in { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap;
+    align-items: center; gap: 18px 28px; }
+  #demo { font-size: clamp(34px, 6vw, 72px); line-height: .95; letter-spacing: -.02em;
+    font-synthesis: none;
+    margin: 0; flex: 1 1 320px; min-width: 0; word-break: break-word; }
+  .picked { font-size: 13px; color: var(--mute); }
+  .picked b { color: var(--mag); font-size: 15px; }
+  .ctrl { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  button, input, select { font: inherit; }
+  .btn { border: 1px solid #e7e1de; background: var(--card); border-radius: 999px;
+    padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: transform .18s ease, background .18s ease, color .18s ease; }
+  .btn:hover { transform: translateY(-2px); background: var(--mag-soft); color: var(--mag); }
+  .btn.on { background: var(--mag); color: #fff; border-color: var(--mag); }
+  #q { border: 1px solid #e7e1de; border-radius: 999px; padding: 10px 18px; min-width: 200px;
+    background: var(--card); }
+
+  h1.title { font-family: 'Bakbak One', sans-serif; font-weight: 400;
+    font-size: clamp(30px, 5vw, 52px); letter-spacing: -.02em; margin: 44px 0 6px; }
+  .lead { color: var(--mute); max-width: 62ch; line-height: 1.6; margin: 0 0 8px; }
+  h2.group { font-family: 'Bakbak One', sans-serif; font-weight: 400; font-size: 22px;
+    margin: 46px 0 4px; }
+  .group-note { color: var(--mute); font-size: 14px; margin: 0 0 18px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+  .card { background: var(--card); border: 1px solid #eee8e5; border-radius: 22px;
+    padding: 22px 22px 18px; cursor: pointer; text-align: left; width: 100%;
+    transition: transform .25s cubic-bezier(.2,.9,.2,1), box-shadow .25s ease, border-color .25s ease; }
+  .card:hover { transform: translateY(-5px); border-color: #f3cfe4;
+    box-shadow: 0 22px 40px -26px rgba(32,30,29,.5); }
+  .card.sel { border-color: var(--mag); box-shadow: 0 0 0 2px var(--mag-soft); }
+  .card .sample, .card .sample2 { font-synthesis: none; }
+  .card .sample { font-size: 30px; line-height: 1.05; margin: 0 0 4px; word-break: break-word; }
+  .card .sample2 { font-size: 18px; line-height: 1.1; margin: 0 0 14px; color: var(--mag);
+    text-transform: uppercase; letter-spacing: -.01em; }
+  .card .meta { display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    font-size: 12.5px; color: var(--mute); border-top: 1px solid #f1ebe8; padding-top: 12px; }
+  .card .name { font-weight: 700; color: var(--ink); font-size: 13.5px; }
+  .tag { background: var(--mag-soft); color: var(--mag); border-radius: 999px;
+    padding: 4px 10px; font-size: 11px; font-weight: 700; }
+
+  .sources { margin-top: 56px; background: var(--card); border: 1px solid #eee8e5;
+    border-radius: 26px; padding: 28px; }
+  .sources ul { margin: 14px 0 0; padding-left: 18px; line-height: 1.9; }
+  .sources a { color: var(--mag); }
+  .out { margin-top: 26px; background: var(--ink); color: #fff; border-radius: 22px; padding: 24px; }
+  .out code { display: block; background: rgba(255,255,255,.08); border-radius: 12px;
+    padding: 12px 14px; margin-top: 10px; font-size: 13px; color: #ffd7ee;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="stage-in">
+    <h1 id="demo">Pilar Pérsico</h1>
+    <div class="ctrl">
+      <span class="picked">Elegida: <b id="pickName">Bakbak One</b></span>
+      <button class="btn" id="spin">Girar ruleta</button>
+      <input id="q" type="search" placeholder="Buscar fuente…" autocomplete="off">
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <h1 class="title">Probador de fuentes</h1>
+  <p class="lead">Cada muestra usa el <b>peso real</b> de esa fuente (el número al lado del nombre): casi todas las display existen sólo en 400, y si se les pide 800 el navegador fabrica un bold falso y engorda las letras. Eso era lo que hacía que el hero no coincidiera con la muestra — ya está corregido en el sitio. Tocá una tarjeta y el título de arriba cambia. Cuando encuentres la que te gusta,
+    pasame el nombre y la dejo fija en el hero y/o en el menú. Todas son gratis y de Google Fonts,
+    así que se cargan igual que las que ya usa la página.</p>
+
+  <h2 class="group">Chunky / póster</h2>
+  <p class="group-note">La línea de tus referencias: pesadas, con carácter, para el nombre grande.</p>
+  <div class="grid" data-group="chunky"></div>
+
+  <h2 class="group">Variables — se pueden animar</h2>
+  <p class="group-note">Tienen ejes (peso, ancho) que se pueden mover con el mouse o el scroll,
+    como el efecto que ya tienen los títulos de la página.</p>
+  <div class="grid" data-group="var"></div>
+
+  <h2 class="group">Serif con actitud</h2>
+  <p class="group-note">Para un lado más editorial / moda, contrastando con el magenta.</p>
+  <div class="grid" data-group="serif"></div>
+
+  <h2 class="group">Grotescas modernas</h2>
+  <p class="group-note">Más sobrias, sirven si querés que el peso visual lo lleven las fotos.</p>
+  <div class="grid" data-group="grot"></div>
+
+  <div class="out">
+    <strong>Para pedirme el cambio</strong>
+    <p style="margin:8px 0 0;color:#cfc9c6;font-size:14.5px">Decime, por ejemplo: «dejá Shrikhand fija en el hero»
+      o «que la ruleta frene en Bungee». Lo que hay hoy en el código es esto:</p>
+    <code id="snippet">REST_FONT = { f: '"Caprasimo", cursive', w: 400 }  →  pp-motion.js</code>
+  </div>
+
+  <div class="sources">
+    <strong>Dónde buscar más (incluida Tropika, que no está en Google)</strong>
+    <ul>
+      <li><a href="https://fonts.google.com/?categoryFilters=Feeling:%2FExpressive%2FCalm" target="_blank" rel="noopener">Google Fonts</a> — gratis, filtro por sensación y por fuentes variables.</li>
+      <li><a href="https://www.fontshare.com/" target="_blank" rel="noopener">Fontshare</a> — tipografías de calidad de estudio, gratis para uso comercial.</li>
+      <li><a href="https://uncut.wtf/" target="_blank" rel="noopener">Uncut.wtf</a> — display raras y contemporáneas, muy en la línea de tus refs.</li>
+      <li><a href="https://pangrampangram.com/collections/free-fonts" target="_blank" rel="noopener">Pangram Pangram (free)</a> — las gratuitas de un estudio grande.</li>
+      <li><a href="https://velvetyne.fr/" target="_blank" rel="noopener">Velvetyne</a> y <a href="https://www.collletttivo.it/" target="_blank" rel="noopener">Collletttivo</a> — libres, experimentales.</li>
+      <li><a href="https://fontesk.com/" target="_blank" rel="noopener">Fontesk</a> — buscador de gratuitas, siempre chequeá la licencia.</li>
+      <li><a href="https://www.dafont.com/es/" target="_blank" rel="noopener">DaFont</a> — acá suele estar Tropika; ojo con la licencia comercial.</li>
+    </ul>
+    <p style="margin:16px 0 0;color:var(--mute);font-size:14px">Si conseguís el archivo de <b>Tropika</b>,
+      dejalo en <code style="background:var(--mag-soft);color:var(--mag);padding:2px 6px;border-radius:6px">uploads/Tropika.woff2</code>
+      y la ruleta del hero frena en ella sola: el <code style="background:var(--mag-soft);color:var(--mag);padding:2px 6px;border-radius:6px">@font-face</code> ya está puesto.</p>
+  </div>
+</div>
+
+<script>
+const FONTS = [
+  // w = peso REAL de cada fuente. La mayoría de las display existen sólo en 400:
+  // si se les pide 700/800 el navegador inventa un bold falso y no se ven así en el sitio.
+  // chunky / póster
+  { n: 'Bakbak One',      f: "'Bakbak One', sans-serif",      w: 400, g: 'chunky', t: 'india + display' },
+  { n: 'Archivo Black',   f: "'Archivo Black', sans-serif",   w: 400, g: 'chunky', t: 'grotesca pesada' },
+  { n: 'Anton',           f: "'Anton', sans-serif",           w: 400, g: 'chunky', t: 'condensada' },
+  { n: 'Caprasimo',       f: "'Caprasimo', cursive",          w: 400, g: 'chunky', t: 'redonda, retro' },
+  { n: 'Alfa Slab One',   f: "'Alfa Slab One', serif",        w: 400, g: 'chunky', t: 'slab de circo' },
+  { n: 'Bowlby One',      f: "'Bowlby One', sans-serif",      w: 400, g: 'chunky', t: 'globito 70s' },
+  { n: 'Lilita One',      f: "'Lilita One', sans-serif",      w: 400, g: 'chunky', t: 'amable' },
+  { n: 'Titan One',       f: "'Titan One', cursive",          w: 400, g: 'chunky', t: 'caricatura' },
+  { n: 'Passion One',     f: "'Passion One', sans-serif",     w: 700, g: 'chunky', t: 'titular apretado' },
+  { n: 'Ultra',           f: "'Ultra', serif",                w: 400, g: 'chunky', t: 'slab western' },
+  { n: 'Shrikhand',       f: "'Shrikhand', serif",            w: 400, g: 'chunky', t: 'italic dulce' },
+  { n: 'Bungee',          f: "'Bungee', sans-serif",          w: 400, g: 'chunky', t: 'cartel urbano' },
+  { n: 'Rubik Mono One',  f: "'Rubik Mono One', sans-serif",  w: 400, g: 'chunky', t: 'bloque mono' },
+  // variables
+  { n: 'Anybody',         f: "'Anybody', sans-serif",         w: 800, g: 'var', t: 'ancho animable' },
+  { n: 'Bricolage Grotesque', f: "'Bricolage Grotesque', sans-serif", w: 800, g: 'var', t: 'la actual' },
+  { n: 'Fraunces',        f: "'Fraunces', serif",             w: 800, g: 'var', t: 'ejes SOFT/WONK' },
+  { n: 'Unbounded',       f: "'Unbounded', sans-serif",       w: 800, g: 'var', t: 'geométrica rara' },
+  { n: 'Syne',            f: "'Syne', sans-serif",            w: 800, g: 'var', t: 'arte contemporáneo' },
+  { n: 'Gluten',          f: "'Gluten', cursive",             w: 800, g: 'var', t: 'blanda' },
+  { n: 'Fredoka',         f: "'Fredoka', sans-serif",         w: 700, g: 'var', t: 'redondeada' },
+  { n: 'Climate Crisis',  f: "'Climate Crisis', sans-serif",  w: 400, g: 'var', t: 'eje YEAR' },
+  // serif
+  { n: 'Playfair Display', f: "'Playfair Display', serif",    w: 900, g: 'serif', t: 'moda / editorial' },
+  { n: 'Instrument Serif', f: "'Instrument Serif', serif",    w: 400, g: 'serif', t: 'fina, elegante' },
+  { n: 'Yeseva One',      f: "'Yeseva One', serif",           w: 400, g: 'serif', t: 'decorativa' },
+  // grotescas
+  { n: 'Space Grotesk',   f: "'Space Grotesk', sans-serif",   w: 700, g: 'grot', t: 'técnica' },
+];
+
+const demo = document.getElementById('demo');
+const pickName = document.getElementById('pickName');
+const snippet = document.getElementById('snippet');
+let selected = null;
+
+FONTS.forEach(function (font) {
+  const host = document.querySelector('.grid[data-group="' + font.g + '"]');
+  const card = document.createElement('button');
+  card.type = 'button';
+  card.className = 'card';
+  card.dataset.name = font.n.toLowerCase();
+  card.innerHTML =
+    '<p class="sample">Pilar Pérsico</p>' +
+    '<p class="sample2">Portfolio ✱ 2026</p>' +
+    '<div class="meta"><span class="name">' + font.n + '</span><span class="tag">' + font.t + '</span></div>';
+  card.querySelectorAll('.sample, .sample2').forEach(function (el) {
+    el.style.fontFamily = font.f;
+    el.style.fontWeight = font.w;
+  });
+  card.addEventListener('click', function () { pick(font, card); });
+  host.appendChild(card);
+});
+
+function pick(font, card) {
+  demo.style.fontFamily = font.f;
+  demo.style.fontWeight = font.w; // el <h1> es bold por defecto: sin esto se ve con bold falso
+  pickName.textContent = font.n + ' · ' + font.w;
+  snippet.textContent = "{ f: '" + font.f.replace(/'/g, '\"') + "', w: " + font.w + " }  →  pp-motion.js";
+  if (selected) selected.classList.remove('sel');
+  if (card) { card.classList.add('sel'); selected = card; }
+}
+pick(FONTS[0], document.querySelector('.card'));
+
+// ruleta: mismo comportamiento que el hero del sitio (3 s desacelerando)
+document.getElementById('spin').addEventListener('click', function () {
+  const btn = this;
+  btn.classList.add('on');
+  let i = 0, gap = 52, elapsed = 0;
+  (function step() {
+    const f = FONTS[Math.floor(Math.random() * FONTS.length)];
+    demo.style.fontFamily = f.f;
+    demo.style.fontWeight = f.w;
+    pickName.textContent = f.n + ' · ' + f.w;
+    elapsed += gap; gap *= 1.32;
+    if (elapsed < 3000) setTimeout(step, gap);
+    else { btn.classList.remove('on'); }
+  })();
+});
+
+// buscador
+document.getElementById('q').addEventListener('input', function () {
+  const q = this.value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(function (c) {
+    c.style.display = !q || c.dataset.name.includes(q) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>

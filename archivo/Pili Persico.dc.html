@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/modernist-32263097-e699-48e7-a823-cfbdb9f5eec3/styles.css">
+<script src="_ds/modernist-32263097-e699-48e7-a823-cfbdb9f5eec3/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; text-wrap: pretty; }
+a { color: var(--color-accent-700); text-decoration: none; }
+a:hover { color: var(--color-accent); text-decoration: underline; }
+</style>
+</helmet>
+<div style="--color-accent:#c3007a;--color-accent-2:#c3007a;--color-accent-100:#fdeaf4;--color-accent-200:#f9cbe4;--color-accent-300:#f29fcb;--color-accent-400:#e35aa2;--color-accent-500:#c3007a;--color-accent-600:#aa006b;--color-accent-700:#8b0057;--color-accent-800:#690042;--color-accent-900:#4a002e;--edge:clamp(20px,5vw,72px);--leading:28px;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+
+  <nav class="nav" style="position:sticky;top:0;z-index:20;background:var(--color-bg);padding-inline:max(var(--edge),calc((100% - 1200px) / 2 + var(--edge)))">
+    <span class="nav-brand">Pilar Pérsico</span>
+    <a href="#trabajos">Trabajos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Cómo trabajo</a>
+    <a href="#sobre">Sobre mí</a>
+    <a class="btn btn-primary" href="#contacto" style="margin-left:auto">Escribime</a>
+  </nav>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 var(--edge)">
+
+    <section style="padding:calc(3.5 * var(--leading)) 0 calc(3 * var(--leading))">
+      <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">Edición de video · CM · Reels · Grabación</span>
+      <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(42px,6.2vw,84px);line-height:1.06;letter-spacing:-0.02em;margin:0 0 0 -0.058em">
+        <span style="display:block">Contenido para marcas</span>
+        <span style="display:block">que necesitan moverse rápido.</span>
+      </h1>
+      <p style="font-size:17px;line-height:var(--leading);max-width:58ch;margin:calc(1.5 * var(--leading)) 0 0">Soy Pili, tengo 19 años y estoy estudiando la Licenciatura en Publicidad en UADE. Aprendí que la creatividad es el punto de partida: de ahí salen las ideas y las decisiones. Eso es lo que quiero poner al servicio de una marca.</p>
+      <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--leading)">
+        <a class="btn btn-primary" href="https://wa.me/5491155555555" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+        <a class="btn btn-ghost" href="#trabajos">Ver trabajos</a>
+      </div>
+    </section>
+
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="trabajos" style="padding:calc(2.5 * var(--leading)) 0 calc(3 * var(--leading))">
+      <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">Algunas producciones</span>
+      <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-0.015em;margin:0 0 calc(1.5 * var(--leading))">Spots, dirección y edición</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--leading) clamp(24px,4vw,56px)">
+        <figure style="margin:0">
+          <div class="grayscale" style="position:relative;width:100%;aspect-ratio:4 / 5;background:var(--color-surface)">
+            <image-slot id="pili-trabajo-pilchera" shape="rect" placeholder="Spot Pilchera — soltá el frame o el video"></image-slot>
+          </div>
+          <figcaption style="margin:14px 0 0">
+            <h3 style="font-family:var(--font-heading);font-weight:800;font-size:22px;line-height:var(--leading);letter-spacing:-0.01em;margin:0">Pilchera</h3>
+            <p style="font-size:15.5px;line-height:var(--leading);margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Spot audiovisual para una marca de asesoramiento de imagen. Actuación, dirección, producción, creatividad y edición.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="grayscale" style="position:relative;width:100%;aspect-ratio:4 / 5;background:var(--color-surface)">
+            <image-slot id="pili-trabajo-ml" shape="rect" placeholder="Spot Mercado Libre — soltá el frame o el video"></image-slot>
+          </div>
+          <figcaption style="margin:14px 0 0">
+            <h3 style="font-family:var(--font-heading);font-weight:800;font-size:22px;line-height:var(--leading);letter-spacing:-0.01em;margin:0">Mercado Libre</h3>
+            <p style="font-size:15.5px;line-height:var(--leading);margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Spot audiovisual. Dirección, producción, creatividad, iluminación y edición.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="servicios" style="padding:calc(2.5 * var(--leading)) 0 calc(2 * var(--leading))">
+      <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 calc(1.5 * var(--leading))">Servicios</span>
+      <div style="display:grid;grid-template-columns:minmax(48px,90px) minmax(0,340px) minmax(0,1fr);gap:14px clamp(24px,4vw,64px);align-items:baseline;padding:calc(1.25 * var(--leading)) 0">
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;line-height:var(--leading);margin:0;font-feature-settings:'tnum' 1">01</p>
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:var(--leading);letter-spacing:-0.01em;margin:0">Edición de video</h3>
+        <p style="font-size:15.5px;line-height:var(--leading);margin:0;max-width:52ch;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Armado, ritmo, subtítulos y sonido. Material crudo que entra desordenado y sale listo para publicar.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(48px,90px) minmax(0,340px) minmax(0,1fr);gap:14px clamp(24px,4vw,64px);align-items:baseline;padding:calc(1.25 * var(--leading)) 0;border-top:2px solid var(--color-divider)">
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;line-height:var(--leading);margin:0;font-feature-settings:'tnum' 1">02</p>
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:var(--leading);letter-spacing:-0.01em;margin:0">CM de redes</h3>
+        <p style="font-size:15.5px;line-height:var(--leading);margin:0;max-width:52ch;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Calendario de contenido, redacción de copys, publicación y respuesta a mensajes. La cuenta con alguien atrás todos los días.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(48px,90px) minmax(0,340px) minmax(0,1fr);gap:14px clamp(24px,4vw,64px);align-items:baseline;padding:calc(1.25 * var(--leading)) 0;border-top:2px solid var(--color-divider)">
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;line-height:var(--leading);margin:0;font-feature-settings:'tnum' 1">03</p>
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:var(--leading);letter-spacing:-0.01em;margin:0">Reels</h3>
+        <p style="font-size:15.5px;line-height:var(--leading);margin:0;max-width:52ch;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Idea, guion corto y edición vertical. Formatos pensados para que la marca aparezca seguido, no una vez por mes.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(48px,90px) minmax(0,340px) minmax(0,1fr);gap:14px clamp(24px,4vw,64px);align-items:baseline;padding:calc(1.25 * var(--leading)) 0;border-top:2px solid var(--color-divider)">
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;line-height:var(--leading);margin:0;font-feature-settings:'tnum' 1">04</p>
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:var(--leading);letter-spacing:-0.01em;margin:0">Grabación</h3>
+        <p style="font-size:15.5px;line-height:var(--leading);margin:0;max-width:52ch;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Producción en el lugar: cámara, luz y dirección. Producto, local, servicio o vos hablando a cámara.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(48px,90px) minmax(0,340px) minmax(0,1fr);gap:14px clamp(24px,4vw,64px);align-items:baseline;padding:calc(1.25 * var(--leading)) 0;border-top:2px solid var(--color-divider)">
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;line-height:var(--leading);margin:0;font-feature-settings:'tnum' 1">05</p>
+        <h3 style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:var(--leading);letter-spacing:-0.01em;margin:0">Publicidad</h3>
+        <p style="font-size:15.5px;line-height:var(--leading);margin:0;max-width:52ch;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Piezas para campaña: concepto, storytelling y adaptación a cada formato. Publicidad es lo que estudio y es desde dónde miro cada pieza.</p>
+      </div>
+    </section>
+
+    <sc-if value="{{ showProceso }}" hint-placeholder-val="{{ true }}">
+      <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+      <section id="proceso" style="padding:calc(2.5 * var(--leading)) 0 calc(3 * var(--leading))">
+        <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 calc(1.5 * var(--leading))">Cómo trabajo</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--leading) clamp(24px,4vw,56px)">
+          <div>
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1.1;color:var(--color-accent);margin:0 0 14px 0">01</p>
+            <h3 style="font-family:var(--font-heading);font-weight:800;font-size:20px;line-height:var(--leading);margin:0">Charla inicial</h3>
+            <p style="font-size:15.5px;line-height:var(--leading);margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Me contás qué vende la marca, a quién y qué te falta. Sin formularios largos.</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1.1;color:var(--color-accent);margin:0 0 14px 0">02</p>
+            <h3 style="font-family:var(--font-heading);font-weight:800;font-size:20px;line-height:var(--leading);margin:0">Propuesta e ideas</h3>
+            <p style="font-size:15.5px;line-height:var(--leading);margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Te llevo el concepto, las piezas que recomiendo y el presupuesto en una hoja.</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1.1;color:var(--color-accent);margin:0 0 14px 0">03</p>
+            <h3 style="font-family:var(--font-heading);font-weight:800;font-size:20px;line-height:var(--leading);margin:0">Producción</h3>
+            <p style="font-size:15.5px;line-height:var(--leading);margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Grabamos o trabajo con el material que ya tenés. Edito y armo las piezas.</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1.1;color:var(--color-accent);margin:0 0 14px 0">04</p>
+            <h3 style="font-family:var(--font-heading);font-weight:800;font-size:20px;line-height:var(--leading);margin:0">Entrega y ajustes</h3>
+            <p style="font-size:15.5px;line-height:var(--leading);margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Dos rondas de cambios incluidas y los archivos listos para cada red.</p>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <hr style="height:2px;border:0;margin:0;background:var(--color-divider)">
+
+    <section id="sobre" style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--leading) clamp(24px,5vw,96px);align-items:start;padding:calc(2.5 * var(--leading)) 0 calc(3 * var(--leading))">
+      <figure class="grayscale" style="margin:0;width:100%;aspect-ratio:4 / 5;background:var(--color-surface)">
+        <image-slot id="pili-retrato" shape="rect" placeholder="Foto de Pili — soltá la imagen acá"></image-slot>
+      </figure>
+      <div>
+        <span style="display:block;font-size:13px;line-height:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">Sobre mí</span>
+        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-0.015em;margin:0">Un poco más a detalle</h2>
+        <p style="font-size:16px;line-height:var(--leading);max-width:52ch;margin:var(--leading) 0 0">Si te preguntás por qué elegí este camino y no otro, la respuesta es fácil: siempre se me ocurrían ideas antes que el resto terminara de plantear el problema.</p>
+        <p style="font-size:16px;line-height:var(--leading);max-width:52ch;margin:var(--leading) 0 0">De chica me decían que era muy creativa, pero también que pensaba muy rápido y saltaba de una idea a otra, como si eso fuera un defecto. Tardé en darme cuenta de que esa velocidad es exactamente lo que hace falta para tomar decisiones cuando una marca no tiene tiempo que perder.</p>
+        <p style="font-size:16px;line-height:var(--leading);max-width:52ch;margin:var(--leading) 0 0">Hoy estudio para transformar esa creatividad en estrategia, y me encantaría que seas el próximo al que ayude.</p>
+        <sc-if value="{{ showHabilidades }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:calc(1.5 * var(--leading))">
+            <span class="tag tag-outline">Edición y diseño (video y foto)</span>
+            <span class="tag tag-outline">Ideas rápidas</span>
+            <span class="tag tag-outline">Organización y atención al cliente</span>
+            <span class="tag tag-outline">Redacción y creatividad</span>
+            <span class="tag tag-outline">Pensamiento estratégico</span>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+  </div>
+
+  <section id="contacto" style="background:var(--color-accent);color:var(--color-bg)">
+    <div style="max-width:1200px;margin:0 auto;padding:calc(3 * var(--leading)) var(--edge)">
+      <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,4.2vw,56px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 0 -0.058em;color:var(--color-bg)">
+        <span style="display:block">¿Arrancamos con tu marca?</span>
+      </h2>
+      <p style="font-size:17px;line-height:var(--leading);max-width:48ch;margin:calc(1.25 * var(--leading)) 0 0">Contame qué necesitás y te respondo con una propuesta concreta. Escribime por WhatsApp o por mail.</p>
+      <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:calc(1.5 * var(--leading))">
+        <a class="btn btn-ghost" href="https://wa.me/5491155555555" target="_blank" rel="noopener" style="color:var(--color-bg);border-color:var(--color-bg)">WhatsApp +54 9 11 5555-5555</a>
+        <a class="btn btn-ghost" href="mailto:hola@pilarpersico.com" style="color:var(--color-bg);border-color:var(--color-bg)">hola@pilarpersico.com</a>
+      </div>
+      <div style="display:flex;gap:clamp(16px,3vw,40px);flex-wrap:wrap;margin-top:calc(1.75 * var(--leading));font-size:13px;letter-spacing:0.08em;text-transform:uppercase">
+        <a href="https://instagram.com/" target="_blank" rel="noopener" style="color:var(--color-bg)">Instagram</a>
+        <a href="https://www.linkedin.com/in/pilar-persico-512478352/" target="_blank" rel="noopener" style="color:var(--color-bg)">LinkedIn</a>
+        <span style="opacity:0.8">Buenos Aires, Argentina</span>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 var(--edge)">
+    <footer style="padding:calc(1.5 * var(--leading)) 0;font-size:13px;line-height:var(--leading);color:color-mix(in srgb, var(--color-text) 70%, transparent);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px">
+      <span>Pilar Pérsico — 2026</span>
+      <span>Licenciatura en Publicidad, UADE</span>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showProceso&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;},&quot;showHabilidades&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showProceso: this.props.showProceso ?? true,
+      showHabilidades: this.props.showHabilidades ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
