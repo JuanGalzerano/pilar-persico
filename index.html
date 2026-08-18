@@ -283,6 +283,13 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
   .pp-folder:hover .pp-folder-sheet, .pp-folder.pp-open .pp-folder-sheet { transform: none; }
 }
 
+/* "Un poco más a detalle": título arriba y el texto abajo, ocupando el ancho
+   completo. Sin la foto, el límite de 50ch dejaba media pantalla vacía. El
+   tope de 86ch es para que la línea no se vuelva ilegible en monitores anchos. */
+.pp-sobre-txt { margin-top: clamp(18px, 2.2vw, 28px); }
+.pp-sobre-txt > p { max-width: 86ch; }
+.pp-sobre-txt > p:first-child { margin-top: 0; }
+
 /* aparición al scrollear */
 .pp-r { opacity: 0; transform: translateY(8px); }
 .pp-r.pp-in { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s cubic-bezier(.25,.8,.35,1); }
@@ -512,12 +519,12 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
       </section>
     </sc-if>
 
-    <section id="sobre" style="padding:clamp(32px,5vw,64px) 0">
-      <div>
-        <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0">Un poco más a detalle</h2>
-        <p style="font-size:16.5px;line-height:1.7;color:var(--mute);margin:20px 0 0;max-width:50ch">Si te preguntás por qué elegí este camino y no otro, la respuesta es fácil: siempre se me ocurrían ideas antes que el resto terminara de plantear el problema.</p>
-        <p style="font-size:16.5px;line-height:1.7;color:var(--mute);margin:16px 0 0;max-width:50ch">De chica me decían que era muy creativa, pero también que pensaba muy rápido y saltaba de una idea a otra, como si eso fuera un defecto. Tardé en darme cuenta de que esa velocidad es exactamente lo que hace falta para tomar decisiones cuando una marca no tiene tiempo que perder.</p>
-        <p style="font-size:16.5px;line-height:1.7;color:var(--mute);margin:16px 0 0;max-width:50ch">Hoy busco transformar esa creatividad en estrategia, y me encantaría que seas el próximo al que ayude.</p>
+    <section id="sobre" class="pp-sobre" style="padding:clamp(32px,5vw,64px) 0">
+      <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-0.008em;margin:0">Un poco más a detalle</h2>
+      <div class="pp-sobre-txt">
+        <p style="font-size:clamp(16.5px,1.35vw,19px);line-height:1.7;color:var(--mute);margin:20px 0 0">Si te preguntás por qué elegí este camino y no otro, la respuesta es fácil: siempre se me ocurrían ideas antes que el resto terminara de plantear el problema.</p>
+        <p style="font-size:clamp(16.5px,1.35vw,19px);line-height:1.7;color:var(--mute);margin:16px 0 0">De chica me decían que era muy creativa, pero también que pensaba muy rápido y saltaba de una idea a otra, como si eso fuera un defecto. Tardé en darme cuenta de que esa velocidad es exactamente lo que hace falta para tomar decisiones cuando una marca no tiene tiempo que perder.</p>
+        <p style="font-size:clamp(16.5px,1.35vw,19px);line-height:1.7;color:var(--mute);margin:16px 0 0">Hoy busco transformar esa creatividad en estrategia, y me encantaría que seas el próximo al que ayude.</p>
       </div>
     </section>
 
