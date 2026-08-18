@@ -88,7 +88,9 @@ html[data-pp-scroll="1"] .pp-head { background: rgba(251,249,247,.9); border-bot
   transition: transform .2s cubic-bezier(.2,.9,.2,1), box-shadow .2s ease; }
 .pp-head-cta:hover { color: #fff; transform: translateY(-2px);
   box-shadow: 0 12px 22px -10px rgba(195,0,122,.95); }
-@media (max-width: 480px) { .pp-head-cta { display: none; } }
+/* Sólo en mobile. En desktop el menú y el hero ya tienen el botón a la vista
+   sin scrollear, así que repetirlo en el header sobra. */
+@media (min-width: 900px) { .pp-head-cta { display: none; } }
 
 /* CTA del medio: va apenas termina de ver las producciones, que es donde
    está el pico de interés. Al final de la página ya es tarde. */
@@ -106,6 +108,9 @@ html[data-pp-scroll="1"] .pp-head { background: rgba(251,249,247,.9); border-bot
   transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s ease; }
 .pp-cta-mid-btn:hover { color: #fff; transform: rotate(-1.4deg) translateY(-3px) scale(1.02);
   box-shadow: 0 16px 30px -12px rgba(195,0,122,.95); }
+/* Sólo mobile. La regla va DESPUÉS de la base: con la misma especificidad,
+   gana la última, y adentro de un media query no cambia nada. */
+@media (min-width: 900px) { .pp-cta-mid { display: none; } }
 
 /* ============ MENÚ FULLSCREEN ============ */
 .pp-menu { position: fixed; inset: 0; z-index: 29; display: flex; flex-direction: column; justify-content: center;
