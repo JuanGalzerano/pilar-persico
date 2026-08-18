@@ -79,6 +79,35 @@ html[data-pp-scroll="1"] .pp-head { background: rgba(251,249,247,.9); border-bot
 .pp-burger[data-open="open"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
 .pp-burger[data-open="open"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 
+/* CTA persistente en el header. La acción se repite en vez de competir con
+   otra: siempre es el mismo WhatsApp con el mensaje ya escrito. */
+.pp-head-right { display: flex; align-items: center; gap: 10px; }
+.pp-head-cta { background: var(--mag); color: #fff; border-radius: 999px;
+  padding: 10px 20px; font-size: 14px; font-weight: 600; white-space: nowrap;
+  box-shadow: 0 8px 18px -10px rgba(195,0,122,.9);
+  transition: transform .2s cubic-bezier(.2,.9,.2,1), box-shadow .2s ease; }
+.pp-head-cta:hover { color: #fff; transform: translateY(-2px);
+  box-shadow: 0 12px 22px -10px rgba(195,0,122,.95); }
+@media (max-width: 480px) { .pp-head-cta { display: none; } }
+
+/* CTA del medio: va apenas termina de ver las producciones, que es donde
+   está el pico de interés. Al final de la página ya es tarde. */
+.pp-cta-mid { display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: clamp(18px, 3vw, 32px);
+  background: var(--mag-soft); border: 1px solid #f6d9e9;
+  border-radius: clamp(24px, 3.4vw, 36px);
+  padding: clamp(26px, 3.6vw, 42px) clamp(24px, 3.6vw, 46px);
+  margin: clamp(8px, 2vw, 20px) 0 clamp(16px, 2vw, 24px); }
+.pp-cta-mid-title { font-family: var(--font-heading); font-weight: 800;
+  font-size: clamp(21px, 2.6vw, 30px); letter-spacing: -.01em; line-height: 1.15; margin: 0; }
+.pp-cta-mid-sub { font-size: 15px; line-height: 1.55; color: #8b6478; margin: 8px 0 0; max-width: 44ch; }
+.pp-cta-mid-btn { flex: 0 0 auto; background: var(--mag); color: #fff; border-radius: 999px;
+  padding: 16px 28px; font-size: 15px; font-weight: 600; white-space: nowrap;
+  transform: rotate(-1.4deg); box-shadow: 0 10px 24px -12px rgba(195,0,122,.85);
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s ease; }
+.pp-cta-mid-btn:hover { color: #fff; transform: rotate(-1.4deg) translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 30px -12px rgba(195,0,122,.95); }
+
 /* ============ MENÚ FULLSCREEN ============ */
 .pp-menu { position: fixed; inset: 0; z-index: 29; display: flex; flex-direction: column; justify-content: center;
   padding: 104px var(--edge) 40px; background: rgba(251,249,247,.82); backdrop-filter: blur(20px) saturate(125%);
@@ -280,10 +309,13 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
   <div class="pp-head">
     <nav style="max-width:1160px;margin:0 auto;padding:10px var(--edge);display:flex;align-items:center;justify-content:space-between;gap:12px">
       <a href="#" class="pp-mark" aria-label="Pilar Pérsico — inicio"><span class="pp-swap">Portfolio</span></a>
-      <button type="button" class="pp-burger" data-menu-toggle="" data-open="{{ menuState }}" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="pp-menu" aria-label="Abrir menú">
+      <div class="pp-head-right">
+        <a class="pp-head-cta" href="https://wa.me/5491155555555?text=Hola%20Pili%2C%20vi%20tu%20portfolio%20y%20quiero%20consultar%20por%20tus%20servicios%20de%20" target="_blank" rel="noopener">Escribime</a>
+        <button type="button" class="pp-burger" data-menu-toggle="" data-open="{{ menuState }}" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="pp-menu" aria-label="Abrir menú">
         <span></span>
         <span></span>
-      </button>
+        </button>
+      </div>
     </nav>
   </div>
 
@@ -453,6 +485,14 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
           <p style="font-size:15px;line-height:1.6;color:var(--mute);margin:6px 0 0;max-width:46ch">Spot audiovisual académico. Dirección, producción, creatividad, iluminación y edición.</p>
         </article>
       </div>
+    </section>
+
+    <section class="pp-cta-mid">
+      <div>
+        <p class="pp-cta-mid-title">¿Te imaginás tu marca acá?</p>
+        <p class="pp-cta-mid-sub">Contame qué necesitás y te respondo con una propuesta concreta.</p>
+      </div>
+      <a class="pp-cta-mid-btn" href="https://wa.me/5491155555555?text=Hola%20Pili%2C%20vi%20tu%20portfolio%20y%20quiero%20consultar%20por%20tus%20servicios%20de%20" target="_blank" rel="noopener">Escribime por WhatsApp →</a>
     </section>
 
     <sc-if value="{{ showProceso }}" hint-placeholder-val="{{ true }}">
