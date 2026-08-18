@@ -156,6 +156,11 @@ html[data-pp-scroll="1"] .pp-head { background: rgba(251,249,247,.9); border-bot
 .pp-hero { padding: clamp(28px, 6vw, 88px) 0 clamp(24px, 4vw, 44px); }
 .pp-hero-lead { font-size: clamp(17.5px, 1.6vw, 21px); line-height: 1.62; color: var(--mute);
   max-width: 68ch; margin: clamp(20px, 2.4vw, 32px) 0 0; }
+/* El claim va solo en su línea; el resto de la presentación es un bloque
+   aparte, más chico, abajo. */
+.pp-hero-claim { font-size: clamp(19px, 2vw, 26px); color: var(--ink); font-weight: 600;
+  max-width: none; margin-top: clamp(18px, 2.2vw, 28px); }
+.pp-hero-claim + .pp-hero-lead { margin-top: clamp(12px, 1.4vw, 18px); }
 .pp-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: clamp(28px, 3.4vw, 44px); }
 .pp-hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(22px, 2.6vw, 32px); }
 /* Los rubros entran en una fila recién arriba de 1120px: con los nombres
@@ -330,7 +335,7 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
         <a class="meta" href="https://wa.me/5491127406600?text=Hola%20Pili%2C%20vi%20tu%20portfolio%20y%20quiero%20consultar%20por%20tus%20servicios%20de%20" target="_blank" rel="noopener">WhatsApp ↗</a>
         <a class="meta" href="https://instagram.com/" target="_blank" rel="noopener">Instagram ↗</a>
         <a class="meta" href="https://www.linkedin.com/in/pilar-persico-512478352/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <span class="meta">pilipersico1@gmail.com</span>
+        <span class="meta">persicopilar@gmail.com</span>
       </div>
     </div>
   </div>
@@ -339,7 +344,8 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
 
     <section class="pp-hero">
       <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(52px,9vw,132px);line-height:0.92;letter-spacing:-0.02em;margin:0">Pilar<br>Pérsico</h1>
-      <p class="pp-hero-lead">Contenido para marcas que necesitan moverse <span style="color:var(--mag);font-weight:600">rápido</span>. Soy Pili, tengo 19 años y estoy estudiando la Licenciatura en Publicidad en UADE. Aprendí que la creatividad es el punto de partida: de ahí salen las ideas y las decisiones. Eso es lo que quiero poner al servicio de una marca.</p>
+      <p class="pp-hero-lead pp-hero-claim">Contenido para marcas que necesitan moverse <span style="color:var(--mag);font-weight:600">rápido</span>.</p>
+      <p class="pp-hero-lead">Soy Pili, tengo 19 años y estoy estudiando la Licenciatura en Publicidad en UADE. Aprendí que la creatividad es el punto de partida: de ahí salen las ideas y las decisiones. Eso es lo que quiero poner al servicio de una marca.</p>
       <div class="pp-hero-cta">
         <a href="https://wa.me/5491127406600?text=Hola%20Pili%2C%20vi%20tu%20portfolio%20y%20quiero%20consultar%20por%20tus%20servicios%20de%20" target="_blank" rel="noopener" style="background:var(--ink);color:#fff;border-radius:999px;padding:16px 26px;font-size:15px;font-weight:600;transform:rotate(-1.6deg);box-shadow:0 6px 16px rgba(32,30,29,0.16);transition:transform 0.18s ease" style-hover="background:var(--mag);color:#fff">Escribime por WhatsApp</a>
         <a href="#trabajos" style="background:var(--card);border:1px solid #e7e1de;border-radius:999px;padding:16px 26px;font-size:15px;font-weight:600;transform:rotate(1.9deg);box-shadow:0 6px 14px rgba(32,30,29,0.10);transition:transform 0.18s ease" style-hover="background:var(--mag-soft);color:var(--mag)">Ver trabajos →</a>
@@ -533,7 +539,7 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
         <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,4.4vw,54px);line-height:1.08;letter-spacing:-0.012em;margin:0;max-width:22ch;color:#fff">¿Arrancamos con tu marca?</h2>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:36px">
           <a href="https://wa.me/5491127406600?text=Hola%20Pili%2C%20vi%20tu%20portfolio%20y%20quiero%20consultar%20por%20tus%20servicios%20de%20" target="_blank" rel="noopener" style="background:#fff;color:var(--mag);border-radius:999px;padding:16px 26px;font-size:15px;font-weight:600;transform:rotate(-1.6deg);box-shadow:0 6px 16px rgba(74,0,46,0.22)" style-hover="background:#fdeaf4;color:#8b0057">Escribime por WhatsApp →</a>
-          <a href="mailto:pilipersico1@gmail.com" style="border:1px solid rgba(255,255,255,0.55);color:#fff;border-radius:999px;padding:16px 26px;font-size:15px;font-weight:600;transform:rotate(1.7deg)" style-hover="background:rgba(255,255,255,0.14);color:#fff">pilipersico1@gmail.com</a>
+          <a href="mailto:persicopilar@gmail.com" style="border:1px solid rgba(255,255,255,0.55);color:#fff;border-radius:999px;padding:16px 26px;font-size:15px;font-weight:600;transform:rotate(1.7deg)" style-hover="background:rgba(255,255,255,0.14);color:#fff">persicopilar@gmail.com</a>
         </div>
         <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:36px;font-size:14px">
           <a href="https://instagram.com/" target="_blank" rel="noopener" style="color:#fbe3f0">Instagram ↗</a>

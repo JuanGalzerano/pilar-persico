@@ -41,7 +41,7 @@ diseño. Todo lo propio vive en `assets/`.
 | Dato | Valor |
 | --- | --- |
 | WhatsApp | `+54 9 11 2740-6600` → en los links va como `5491127406600` |
-| Mail | `pilipersico1@gmail.com` |
+| Mail | `persicopilar@gmail.com` |
 
 Los cinco botones de WhatsApp (header, hero, menú, la banda después de Trabajos
 y la sección de contacto) apuntan al mismo link con el mensaje ya escrito:
