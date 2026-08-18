@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,500;12..96,75..100,700;12..96,75..100,800&family=Bakbak+One&family=Bowlby+One&family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@700&family=Caprasimo&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;1,6..12,400&display=swap">
 <script src="./image-slot.js"></script>
-<script src="./assets/js/pp-motion.js?v=2"></script>
+<script src="./assets/js/pp-motion.js?v=3"></script>
 <style>
 /* Tropika: fuente propia, no está en Google Fonts. Dejá el archivo en
    ./assets/fonts/Tropika.woff2 (o cambiá la ruta) y la ruleta frena en ella.
@@ -126,14 +126,26 @@ html[data-pp-scroll="1"] .pp-head { background: rgba(251,249,247,.9); border-bot
 }
 
 /* ============ MICRO-INTERACCIONES ============ */
-div:has(> image-slot[id^="v2-hero-"]) { animation: pp-float 9s ease-in-out infinite; will-change: transform; }
-div:has(> image-slot[id="v2-hero-2"]) { animation-duration: 11s; animation-delay: -2.5s; }
-div:has(> image-slot[id="v2-hero-3"]) { animation-duration: 10s; animation-delay: -5s; }
-div:has(> image-slot[id="v2-hero-4"]) { animation-duration: 12.5s; animation-delay: -7s; }
-@keyframes pp-float {
-  0%, 100% { translate: 0 0; }
-  50%      { translate: 0 -12px; }
-}
+/* Los tres asteriscos del hero. Giran lento todo el tiempo y pegan una vuelta
+   rápida cuando los tocás o les pasás el mouse: en celular no hay hover, así que
+   el gesto tiene que ser el toque. */
+.pp-asts { flex: 1 1 300px; min-width: min(100%, 300px);
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(8px, 2.4vw, 28px); padding: clamp(20px, 5vw, 56px) 0; }
+.pp-ast { flex: 0 1 auto; width: clamp(84px, 17vw, 158px); aspect-ratio: 1;
+  padding: 0; border: 0; background: none; color: var(--mag); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  animation: pp-spin-slow 26s linear infinite;
+  transition: color .25s ease, scale .3s cubic-bezier(.2,.9,.2,1); }
+.pp-ast svg { display: block; width: 100%; height: 100%;
+  filter: drop-shadow(0 10px 18px rgba(195,0,122,.22)); }
+.pp-ast:nth-child(2) { width: clamp(112px, 23vw, 210px); animation-duration: 34s;
+  animation-direction: reverse; }
+.pp-ast:nth-child(3) { animation-duration: 30s; animation-delay: -8s; }
+.pp-ast:hover, .pp-ast:focus-visible { scale: 1.06; }
+.pp-ast.pp-spin { animation: pp-spin-fast 1.1s cubic-bezier(.3,0,.2,1); }
+@keyframes pp-spin-slow { to { rotate: 360deg; } }
+@keyframes pp-spin-fast { from { rotate: 0deg; } to { rotate: 720deg; } }
 #trabajos article > div:first-child, #servicios > div > div {
   transition: transform .4s cubic-bezier(.2,.9,.2,1), box-shadow .4s ease, border-color .3s ease; }
 #trabajos article:hover > div:first-child { transform: translateY(-8px) rotate(-.8deg);
@@ -234,7 +246,7 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   #pp-grain { animation: none; }
-  div:has(> image-slot[id^="v2-hero-"]) { animation: none; }
+  .pp-ast { animation: none; }
   .pp-r, .pp-r.pp-in { opacity: 1; transform: none; transition: none; }
 }
 </style>
@@ -275,19 +287,34 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
   <div style="max-width:1160px;margin:0 auto;padding:0 var(--edge)">
 
     <section style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(28px,5vw,64px);padding:clamp(24px,5vw,72px) 0 clamp(28px,4vw,48px)">
-      <div style="position:relative;flex:1 1 300px;min-width:min(100%,300px);aspect-ratio:4 / 5;min-height:320px">
-        <div style="position:absolute;top:0;left:2%;width:56%;aspect-ratio:3 / 4;border-radius:22px;overflow:hidden;background:var(--mag-soft);transform:rotate(-7deg);box-shadow:0 14px 34px rgba(32,30,29,0.14);z-index:2">
-          <image-slot id="v2-hero-1" shape="rect" placeholder="Foto 1"></image-slot>
-        </div>
-        <div style="position:absolute;top:8%;right:0;width:44%;aspect-ratio:1 / 1;border-radius:20px;overflow:hidden;background:#f1efec;transform:rotate(6deg);box-shadow:0 14px 34px rgba(32,30,29,0.12);z-index:3">
-          <image-slot id="v2-hero-2" shape="rect" placeholder="Foto 2"></image-slot>
-        </div>
-        <div style="position:absolute;bottom:2%;left:0;width:46%;aspect-ratio:4 / 5;border-radius:20px;overflow:hidden;background:#f1efec;transform:rotate(9deg);box-shadow:0 14px 34px rgba(32,30,29,0.12);z-index:4">
-          <image-slot id="v2-hero-3" shape="rect" placeholder="Foto 3"></image-slot>
-        </div>
-        <div style="position:absolute;bottom:12%;right:1%;width:50%;aspect-ratio:9 / 12;border-radius:24px;overflow:hidden;background:var(--mag-soft);transform:rotate(-12deg);box-shadow:0 18px 40px rgba(32,30,29,0.16);z-index:1">
-          <image-slot id="v2-hero-4" shape="rect" placeholder="Foto 4"></image-slot>
-        </div>
+      <div class="pp-asts">
+        <button type="button" class="pp-ast" style="--i:0" aria-label="Hacer girar el asterisco">
+          <svg viewBox="-50 -50 100 100" aria-hidden="true" focusable="false">
+            <g fill="currentColor">
+              <rect x="-11.5" y="-50" width="23" height="100"></rect>
+              <rect x="-11.5" y="-50" width="23" height="100" transform="rotate(60)"></rect>
+              <rect x="-11.5" y="-50" width="23" height="100" transform="rotate(120)"></rect>
+            </g>
+          </svg>
+        </button>
+        <button type="button" class="pp-ast" style="--i:1" aria-label="Hacer girar el asterisco">
+          <svg viewBox="-50 -50 100 100" aria-hidden="true" focusable="false">
+            <g fill="currentColor">
+              <rect x="-11.5" y="-50" width="23" height="100"></rect>
+              <rect x="-11.5" y="-50" width="23" height="100" transform="rotate(60)"></rect>
+              <rect x="-11.5" y="-50" width="23" height="100" transform="rotate(120)"></rect>
+            </g>
+          </svg>
+        </button>
+        <button type="button" class="pp-ast" style="--i:2" aria-label="Hacer girar el asterisco">
+          <svg viewBox="-50 -50 100 100" aria-hidden="true" focusable="false">
+            <g fill="currentColor">
+              <rect x="-11.5" y="-50" width="23" height="100"></rect>
+              <rect x="-11.5" y="-50" width="23" height="100" transform="rotate(60)"></rect>
+              <rect x="-11.5" y="-50" width="23" height="100" transform="rotate(120)"></rect>
+            </g>
+          </svg>
+        </button>
       </div>
       <div style="flex:1 1 360px;min-width:min(100%,320px)">
       <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(52px,8.4vw,124px);line-height:0.92;letter-spacing:-0.02em;margin:20px 0 0">Pilar<br>Pérsico</h1>
@@ -404,7 +431,7 @@ h2:hover { font-variation-settings: "wght" 800, "wdth" 82; }
           <div class="pp-folder-front">
             <span class="pp-folder-num">08</span>
             <h3 class="pp-folder-name">Organización y documentación gráfica</h3>
-            <p class="pp-folder-note"></p>
+            <p class="pp-folder-note">Presentaciones, brief y entregables ordenados.</p>
           </div>
         </article>
       </div>

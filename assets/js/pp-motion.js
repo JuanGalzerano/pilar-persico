@@ -11,7 +11,8 @@
      3. Menú         — bloqueo de scroll, cierre con Escape, click fuera.
      4. Videos       — reels mudos en loop, carga diferida y sonido de a uno.
      5. Carpetas     — los servicios se abren solos la primera vez que se ven.
-     6. Detalles     — header con sombra al scrollear, aparición de secciones.
+     6. Asteriscos   — los del hero giran solos y aceleran al tocarlos.
+     7. Detalles     — header con sombra al scrollear, aparición de secciones.
 
    Respeta prefers-reduced-motion y se pausa con la pestaña oculta. */
 (function () {
@@ -609,7 +610,35 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 6. DETALLES: header al scrollear + aparición de secciones            *
+   * 6. ASTERISCOS DEL HERO                                               *
+   *    Giran lento por CSS. Al tocarlos (o pasarles el mouse) pegan una   *
+   *    vuelta rápida: se cambia de animación y al terminar vuelve la      *
+   *    lenta. El listener es delegado porque el runtime de DC puede       *
+   *    volver a montar el markup.                                        *
+   * ------------------------------------------------------------------ */
+  function asterisks() {
+    if (REDUCE) return;
+
+    function kick(el) {
+      if (!el || el.classList.contains('pp-spin')) return;
+      el.classList.add('pp-spin');
+      // el timeout tiene que superar la duración de pp-spin-fast (1.1s)
+      setTimeout(function () { el.classList.remove('pp-spin'); }, 1150);
+    }
+
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('.pp-ast');
+      if (a) kick(a);
+    });
+    document.addEventListener('pointerenter', function (e) {
+      if (COARSE) return; // en touch ya lo cubre el click
+      var a = e.target.closest && e.target.closest('.pp-ast');
+      if (a) kick(a);
+    }, true);
+  }
+
+  /* ------------------------------------------------------------------ *
+   * 7. DETALLES: header al scrollear + aparición de secciones            *
    * ------------------------------------------------------------------ */
   function chrome() {
     var root = document.documentElement;
@@ -650,6 +679,7 @@
     menu();
     videos();
     folders();
+    asterisks();
     chrome();
   });
 })();
